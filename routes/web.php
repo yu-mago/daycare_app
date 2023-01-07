@@ -14,11 +14,7 @@ use App\Http\Controllers\MessageController;  //外部にあるPostControllerク�
 |
 */
 
-ROute::get('/', [MessageController::class, 'index']);
-//コントローラーを通じてviewに渡したい→PostControllerを呼び出し、indexメソッドを返す
-//ここの表示部分がサイとのトップページとなる
-
-Route::get('/messages', [MessageController::class, 'index']);   
+//Route::get('/messages', [MessageController::class, 'index']);   
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,6 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/', [MessageController::class, 'index']);
+//コントローラーを通じてviewに渡したい→PostControllerを呼び出し、indexメソッドを返す
+//ここの表示部分がサイとのトップページとなる
 });
 
 
