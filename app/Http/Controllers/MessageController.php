@@ -21,7 +21,7 @@ public function index(Message $message){
 }
 public function create()
 {
-    return view('messages/posts/post');
+    return view('messages/create');
 }
 public function store(Request $request, Message $message){
     $input = $request['post'];
