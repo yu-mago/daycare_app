@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     use HasFactory; //seederの何か（DB）
+
+    protected $fillable = [
+    'title',
+    'body',
+];
 }
+

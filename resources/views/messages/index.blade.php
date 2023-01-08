@@ -8,13 +8,15 @@
     </head>
     <body>
         <h1>メッセージ一覧</h1>
+        <form action="/posts" method="POST">
         <div class='messages'>
             @foreach ($messages as $message)
                 <div class='message'>
                     <h2 class='id'>{{ $message->id }}</h2>
-                {{--<p class='body'>{{ $post->body }}</p>--}}
+                <p class='body'>{{ $message->body }}</p>
                 </div>
             @endforeach
         </div>
+        <a href='/posts'>投稿</a>
     </body>
 </html>
