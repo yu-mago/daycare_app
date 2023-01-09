@@ -12,7 +12,7 @@
         <div class='messages'>
             @foreach ($messages as $message)
                 <div class='message'>
-                    <h2 class='id'>{{ $message->id }}</h2>
+                    {{--<h2 class='id'>{{ $message->id }}</h2>--}}
                 <p class='body'>{{ $message->body }}</p>
                 </div>
             @endforeach
