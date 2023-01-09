@@ -25,10 +25,11 @@ public function create()
 }
 public function store(Request $request, Message $message){
     $input = $request['post'];
+   // dd($input);inputの中に入っているか確認
     //postを関数としたbodyのデータ（ユーザーが入力したもの）がインスタンス化され、インプットされる
-    $message->fill($input);
+    $message->fill($input)->save();
     //fillableに定義された$postのbodyのプロパティに上書きすることが出来る
-    return redirect('/posts'.$message->id);
+    return redirect('/');
     //$post->idの引数を入れることで作成した投稿の詳細ページへ画面を遷移できる
 }
 }
