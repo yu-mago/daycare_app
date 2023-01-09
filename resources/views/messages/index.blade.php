@@ -18,5 +18,8 @@
             @endforeach
         </div>
         <a href='/posts'>投稿</a>
+        <div class='paginate'>
+            {{ $messages->links() }}
+        </div>
     </body>
 </html>

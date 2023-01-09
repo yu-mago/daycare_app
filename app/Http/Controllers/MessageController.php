@@ -17,7 +17,7 @@ class MessageController extends Controller
 {
 
 public function index(Message $message){
-    return view('messages/index')->with(['messages' => $message->get()]);
+    return view('messages/index')->with(['messages' => $message->getPaginateByLimit()]);
 }
 public function create()
 {
