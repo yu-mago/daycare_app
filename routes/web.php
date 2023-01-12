@@ -24,9 +24,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/', [MessageController::class, 'index']);
-    Route::post('/posts', [MessageController::class, 'store']);
-    Route::get('/posts', [MessageController::class, 'create']);
+    Route::get('/', [MessageController::class, 'home']);
+    Route::get('/messages', [MessageController::class, 'index']);
+    Route::post('/messages/posts', [MessageController::class, 'store']);
+    Route::get('/messages/posts', [MessageController::class, 'create']);
+    Route::get('messages/posts/{message}', [MessageController::class ,'show']);
+    Route::get('/messages/posts/{message}/edit', [MessageController::class, 'edit']);
+    Route::put('/messages/posts/{message}', [MessageController::class, 'update']);
+    Route::delete('messages/posts/{message}', [MessageController::class,'delete']);
     
 //コントローラーを通じてviewに渡したい→PostControllerを呼び出し、indexメソッドを返す
 //ここの表示部分がサイとのトップページとなる
