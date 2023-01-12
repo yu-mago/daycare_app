@@ -5,19 +5,20 @@
         <title>Blog</title>
     </head>
     <body>
-        <form action="/posts" method="POST">
+        <form action="messages/posts" method="POST">
             @csrf
             
             <div class="body">
                 <h1>メッセージ投稿</h1>
                  <h2>メッセージ内容</h2>
-                <textarea name="post[body]" placeholder="今、なにしている？"></textarea>
-                {{--"message[body]"の部分は--}}
+                <textarea name="post[body]" placeholder="今、なにしている？">{{ old('post.body') }}</textarea>
+               <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+            </div>
             </div>
             <input type="submit" value="保存"/>
             </form>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/messages">戻る</a>
         </div>
     </body>
 </html>
